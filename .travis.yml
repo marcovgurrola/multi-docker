@@ -16,10 +16,10 @@ after_success:
   - docker build -t marcovgurrola/multi-server ./server
   - docker build -t marcovgurrola/multi-worker ./worker
 
-# Log into to Docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-# Take the images above and push them to Docker Hub
-- docker push marcovgurrola/multi-client
-- docker push marcovgurrola/multi-nginx
-- docker push marcovgurrola/multi-server
-- docker push marcovgurrola/multi-worker
+  # Log into to Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take the images above and push them to Docker Hub
+  - docker push marcovgurrola/multi-client
+  - docker push marcovgurrola/multi-nginx
+  - docker push marcovgurrola/multi-server
+  - docker push marcovgurrola/multi-worker
