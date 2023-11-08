@@ -23,3 +23,15 @@ after_success:
   - docker push marcovgurrola/multi-nginx
   - docker push marcovgurrola/multi-server
   - docker push marcovgurrola/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-1'
+  app: 'multi-docker'
+  env: 'MultiDocker-env'
+  bucket_name: 'elasticbeanstalk-eu-central-1-754599169012'
+  bucket_path: 'docker-multi'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
